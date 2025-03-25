@@ -2,14 +2,14 @@
 # Pokémon API Explorer
 
 ## 📌 Visão Geral
-A Pokémon API Explorer é uma aplicação web que permite buscar informações detalhadas sobre Pokémon utilizando a PokeAPI. Ela funciona como uma ponte entre o usuário e a PokeAPI, processando e exibindo os dados de forma amigável.
+A Pokémon API Explorer é uma aplicação web que permite buscar informações detalhadas sobre Pokémons utilizando a PokéAPI. Ela funciona como uma ponte entre o usuário e a PokéAPI, processando e exibindo os dados de forma amigável.
 
 ### Funcionalidades Principais:
 
-- Busca Pokémon por nome
-- Exibe informações como: nome, ID, imagem, tipos, altura e peso
-- Interface simples e intuitiva
-- Tratamento de erros para Pokémon não encontrados
+- Busca de Pokémons por nome;
+- Exibe informações como: nome, ID, imagem, tipos, altura e peso;
+- Interface simples e intuitiva;
+- Tratamento de erros para Pokémons não encontrados
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -57,13 +57,13 @@ Abra seu navegador e visite:
 ## 🚀 Como Usar
 
 1. Na página inicial, digite o nome de um Pokémon no campo de busca
- - Exemplos: "pikachu", "charizard", "mewtwo"
+    - Exemplos: "pikachu", "charizard", "mewtwo"
 2. Clique no botão "Buscar"
 3. Visualize as informações do Pokémon:
- - Nome e número na Pokédex
- - Imagem oficial
- - Tipos (ex: Elétrico, Fogo, Água)
- - Altura e peso
+  - Nome e número na Pokédex
+  - Imagem oficial
+  - Tipos (ex: Elétrico, Fogo, Água)
+  - Altura e peso
 4. Para uma nova busca, digite outro nome e clique em buscar novamente
 
 ## ⚙️ Estrutura do Projeto
@@ -81,8 +81,8 @@ CPVMPCT-E1/
 
 A aplicação expõe os seguintes endpoints:
 
-- GET /: Retorna a página HTML principal
-- POST /pokemon: Recebe o nome do Pokémon e retorna seus dados
+- `GET /`: Retorna a página HTML principal
+- `POST /pokemon`: Recebe o nome do Pokémon e retorna seus dados
 
 Exemplo de resposta da API:
 
