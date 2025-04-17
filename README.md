@@ -61,7 +61,8 @@ npm install
 # Terminal 1 (backend)
 cd backend
 node server.js
-
+```
+```
 # Terminal 2 (frontend)
 cd ../frontend
 npm start
@@ -76,8 +77,8 @@ Abra seu navegador e visite:
 
 1. Selecione as gerações que deseja incluir no jogo
 2. Adivinhe o Pokémon baseado na imagem pixelada:
-  - Digite o nome no campo de texto
-  - Use a dica para revelar mais detalhes
+    - Digite o nome no campo de texto
+    - Use a dica para revelar mais detalhes
 3. Acumule pontos por respostas corretas consecutivas
 4. O jogo acaba quando você errar um Pokémon
 5. Reinicie para tentar bater seu recorde!
