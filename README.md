@@ -57,13 +57,14 @@ npm install
 
 4. Inicie os servidores (em terminais separados):
 
-```
 # Terminal 1 (backend)
+```
 cd backend
 node server.js
 ```
-```
+
 # Terminal 2 (frontend)
+```
 cd ../frontend
 npm start
 ```
