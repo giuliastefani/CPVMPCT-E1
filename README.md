@@ -1,79 +1,102 @@
 
-# Pokémon API Explorer
+# Pokémon Guessing Game
 
 ## 📌 Visão Geral
-A Pokémon API Explorer é uma aplicação web que permite buscar informações detalhadas sobre Pokémons utilizando a PokéAPI. Ela funciona como uma ponte entre o usuário e a PokéAPI, processando e exibindo os dados de forma amigável.
+O Pokémon Guessing Game é uma aplicação web onde você precisa adivinhar qual Pokémon é baseado em sua sprite pixelada com múltiplas gerações para escolher.
 
 ### Funcionalidades Principais:
 
-- Busca de Pokémons por nome;
-- Exibe informações como: nome, ID, imagem, tipos, altura e peso;
-- Interface simples e intuitiva;
-- Tratamento de erros para Pokémons não encontrados
+- Adivinhação por sprite
+- Seleção de gerações Pokémon (Gen 1 a Gen 8)
+- Revelação progressiva da imagem
+- Sistema de pontuação por acertos consecutivos
 
 ## 🛠️ Tecnologias Utilizadas
 
 ### Backend:
 
-- Node.js: Ambiente de execução JavaScript
-- Express: Framework para construção do servidor web
-- Axios: Cliente HTTP para consumir a PokeAPI
+- Node.js + Express
+- Axios (para consumir a PokeAPI)
+- CORS (para permitir requisições do frontend)
 
 ### Frontend:
 
-- HTML5: Estrutura da página
-- CSS3: Estilização básica
-- JavaScript: Manipulação DOM e requisições assíncronas
+- React (criado com Create React App)
+- Canvas API (para efeitos de pixelização)
+- Workbox (para service worker)
 
 ## 📥 Instalação
 
-Siga estes passos para instalar e executar o projeto localmente:
-
 Pré-requisitos:
-- Node.js (v14 ou superior)
+- Node.js (v16 ou superior)
 - NPM ou Yarn
-- Git (opcional)
+
+Siga estes passos para instalar e executar o projeto localmente:
 
 #### Passos:
 1. Clone o repositório (ou baixe os arquivos):
 
-`git clone https://github.com/giuliastefani/CPVMPCT-E1.git`
+```
+git clone https://github.com/giuliastefani/CPVMPCT-E1.git
+cd CPVMPCT-E1
+```
 
-`cd CPVMPCT-E1`
+2. Instale as dependências do backend:
 
-2. Instale as dependências:
+```
+cd backend
+npm install
+```
 
-`npm install`
+3. Instale as dependências do frontend:
 
-3. Inicie o servidor:
+```
+cd ../frontend
+npm install
+```
 
-`node app.js`
+4. Inicie os servidores (em terminais separados):
 
-4. Acesse a aplicação:
+```
+# Terminal 1 (backend)
+cd backend
+node server.js
+
+# Terminal 2 (frontend)
+cd ../frontend
+npm start
+```
+
+5. Acesse a aplicação:
 Abra seu navegador e visite:
 
 `http://localhost:3000`
 
-## 🚀 Como Usar
+## 🎮 Como Jogar
 
-1. Na página inicial, digite o nome de um Pokémon no campo de busca
-    - Exemplos: "pikachu", "charizard", "mewtwo"
-2. Clique no botão "Buscar"
-3. Visualize as informações do Pokémon:
-  - Nome e número na Pokédex
-  - Imagem oficial
-  - Tipos (ex: Elétrico, Fogo, Água)
-  - Altura e peso
-4. Para uma nova busca, digite outro nome e clique em buscar novamente
+1. Selecione as gerações que deseja incluir no jogo
+2. Adivinhe o Pokémon baseado na imagem pixelada:
+  - Digite o nome no campo de texto
+  - Use a dica para revelar mais detalhes
+3. Acumule pontos por respostas corretas consecutivas
+4. O jogo acaba quando você errar um Pokémon
+5. Reinicie para tentar bater seu recorde!
 
 ## ⚙️ Estrutura do Projeto
 
 ```
 CPVMPCT-E1/
-├── public/
-│   └── index.html          # Página principal
-├── app.js                  # Servidor Node.js
-├── package.json            # Configurações e dependências
+├── backend/
+│   ├── node_modules/
+│   ├── package.json
+│   └── app.js              # Servidor Node.js/Express
+├── frontend/
+│   ├── public/             # Assets estáticos
+│   ├── src/
+│   │   ├── components/     # Componentes React
+│   │   ├── App.js          # Componente principal
+│   │   └── index.js        # Ponto de entrada
+│   ├── package.json
 └── README.md               # Este arquivo
 ```
 
@@ -81,19 +104,18 @@ CPVMPCT-E1/
 
 A aplicação expõe os seguintes endpoints:
 
-- `GET /`: Retorna a página HTML principal
-- `POST /pokemon`: Recebe o nome do Pokémon e retorna seus dados
+- `GET /api/generations`: Retorna as gerações disponíveis
+- `GET /api/random-pokemon?generations=gen1,gen2`: Retorna um Pokémon aleatório
+- `POST /api/check-answer`: Verifica se o palpite está correto
 
 Exemplo de resposta da API:
 
 ```
 {
-  "name": "pikachu",
   "id": 25,
-  "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
-  "types": ["electric"],
-  "height": 4,
-  "weight": 60
+  "name": "pikachu",
+  "sprite": "https://.../25.png",
+  "generation": "gen1"
 }
 ```
 
